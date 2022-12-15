@@ -1,4 +1,4 @@
-const { EDITOR_EXTENSION_ID } = require('../config.json')
+const EDITOR_EXTENSION_ID = 'kcaghheadgiepldjcemnmnmpkfchmpma';
 class Client {
     constructor() {
         this.CHROME_ID = EDITOR_EXTENSION_ID
