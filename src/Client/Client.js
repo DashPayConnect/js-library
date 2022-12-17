@@ -1,4 +1,4 @@
-const EDITOR_EXTENSION_ID = 'kcaghheadgiepldjcemnmnmpkfchmpma';
+const EDITOR_EXTENSION_ID = 'camoceckaeifkkpepgjoccjfjkcjhojc';
 class Client {
     constructor() {
         this.CHROME_ID = EDITOR_EXTENSION_ID
@@ -6,7 +6,7 @@ class Client {
         this.account = null;
     }
 };
-Client.EDITOR_EXTENSION_ID = "kcaghheadgiepldjcemnmnmpkfchmpma";
+Client.EDITOR_EXTENSION_ID = EDITOR_EXTENSION_ID;
 Client.prototype.connect = require('./methods/connect');
 Client.prototype.disconnect = require('./methods/disconnect');
 Client.prototype.getAccount = require('./methods/getAccount');

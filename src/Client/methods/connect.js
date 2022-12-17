@@ -15,9 +15,11 @@ module.exports = async function connect() {
                     this.state = 'connected';
                     //FIXME: Should use another internal to handle this.
                     chrome.runtime.sendMessage(EDITOR_EXTENSION_ID, {action: "FETCH", args: ['ACCOUNT']}, (response)=>{
-                        self.account = response.args[1];
-                        resolve(self.account);
-                        window.removeEventListener("message", onConnectAwait);
+                        if(response?.args && response.args[1]){
+                            self.account = response.args[1];
+                            resolve(self.account);
+                            window.removeEventListener("message", onConnectAwait);
+                        }
                     });
                 }
             });
