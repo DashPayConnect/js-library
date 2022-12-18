@@ -9,7 +9,6 @@ const onConnectAwait = function (event) {
     const {args, type} = event.data;
     if (type === 'ACCOUNT') {
         this.state = 'connected';
-        res(true);
         window.removeEventListener("message", onConnectAwait);
     }
 }

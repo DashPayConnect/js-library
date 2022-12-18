@@ -25,9 +25,10 @@ class Client {
         });
     }
     async initDashInstance(){
-        if(!chrome.runtime){
+        if(!chrome.runtime || !chrome.runtime.onMessage){
             const Dash = require('../../../platform/packages/js-dash-sdk/dist/dash.min');
             this.dashInstance = new Dash.Client();
+            globalThis.dashInstance = this.dashInstance;
         }
     }
     async getDocuments(typeLocator, fetchOpts){
