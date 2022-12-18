@@ -9,6 +9,7 @@ module.exports = async function connect() {
             console.log(`[Client] ${response.action} - ${JSON.stringify(response.args)}`);
             if(response?.args && response.args[1]){
                 self.currentAccount = response.args[1];
+                self.currentAccount.balance = response.args[2] ?? 0;
                 resolve(self.currentAccount);
             }
         }
