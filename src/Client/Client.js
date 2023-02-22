@@ -5,7 +5,9 @@ class Client {
         this.state = "IDLE";
         this.currentAccount = {
             address: null,
-            index: null
+            index: null,
+            balance: 0,
+            transactionHistory: [],
         };
         this.dashInstance = null;
     }
@@ -17,7 +19,11 @@ class Client {
             console.log('[Client] Request Transaction ' + JSON.stringify(opts));
 
             const handleResponse = function (response){
-                console.log(`[Client] ${response.action} - ${JSON.stringify(response.args)}`);
+                try {
+                    console.log(`[Client] ${response.action} - ${JSON.stringify(response.args)}`);
+                } catch (e) {
+                    console.log(`[Client] Failed action - ${JSON.stringify(response)}`);
+                }
                 resolve(response);
             }
 

@@ -10,7 +10,11 @@ module.exports = async function connect() {
             if(response?.args && response.args[1]){
                 self.currentAccount = response.args[1];
                 self.currentAccount.balance = response.args[2] ?? 0;
+                self.currentAccount.transactionHistory = response.args[3] ?? [];
                 resolve(self.currentAccount);
+            } else {
+                console.log('UNHANDLED RESPONSE from Client.fetchCurrentAccount()', response);
+                resolve(null)
             }
         }
 

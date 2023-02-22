@@ -17,6 +17,8 @@ const onAccountUpdate = function (event) {
     if (type === 'ACCOUNT') {
         console.log('Updating account', JSON.stringify(args));
         this.currentAccount = args[0]
+        this.currentAccount.balance = response.args[1] ?? 0;
+        this.currentAccount.transactionHistory = response.args[2] ?? []
     }
 };
 module.exports = async function connect() {
@@ -37,6 +39,8 @@ module.exports = async function connect() {
                         resolve(res);
                     })
                 window.removeEventListener("message", onConnectAwait);
+            } else {
+                console.log('UNHANDLED RESPONSE from Client.connect()', response);
             }
         }
 
